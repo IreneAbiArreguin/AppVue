@@ -4,22 +4,26 @@ import TodoList from "./components/TodoList.vue";
 </script>
 
 <template>
-  <AppHeader />
-
-  <TodoList />
+  <div class="app-container">
+    <AppHeader />
+    <TodoList />
+  </div>
 </template>
 
-<style scoped>
+<style>
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
 }
-header {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 0;
-  text-align: center;
+</style>
+
+<style scoped>
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

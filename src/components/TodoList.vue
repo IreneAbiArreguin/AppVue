@@ -8,14 +8,12 @@ type Item = { id: number, title: string; checked?: boolean }
 const storageItems: Ref<Item[]> = ref([])
 const newItemTitle = ref('')
 
-// Obtener los ítems desde la API
 const fetchItems = async () => {
   const res = await fetch('http://localhost:3000/items')
   const data = await res.json()
   storageItems.value = data
 }
 
-// Crear ítems iniciales si la lista está vacía
 const initListItems = async () => {
   await fetchItems()
   if (storageItems.value.length === 0) {
@@ -67,7 +65,6 @@ const updateItemJson = async (item: Item) => {
   })
 }
 
-// Nueva función para eliminar un ítem
 const deleteItem = async (item: Item) => {
   await fetch(`http://localhost:3000/items/${item.id}`, {
     method: 'DELETE',
@@ -75,7 +72,6 @@ const deleteItem = async (item: Item) => {
   await fetchItems()
 }
 
-// Nueva función para agregar un ítem
 const addItem = async () => {
   const title = newItemTitle.value.trim()
   if (!title) return
